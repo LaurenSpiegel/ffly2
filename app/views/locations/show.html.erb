@@ -1,0 +1,22 @@
+<a href = '/'>Home</a>
+
+<h1>Fitifly Fitness Facilities in <%= @location.name %></h1>
+<br>
+
+<% @gyms.each do |r| %>
+<a href="/gyms/<%= r.id %>"><%= r.name %></a>
+<br>
+<% end %>
+
+
+<br>
+<br>
+<%= form_for Gym.new, url: '/gym_create' do |foo| %>
+
+<%= foo.text_field :name %> 
+
+<%= foo.hidden_field :location_id, value: @location.id %>
+
+
+<%= foo.submit "Add Fitifly Location" %>
+  <% end %>

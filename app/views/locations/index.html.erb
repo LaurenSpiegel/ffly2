@@ -1,0 +1,11 @@
+<br>
+<a href = '/gyms'>All Fitifly Facilities</a>
+
+<h1>Fitifly Locations</h1>
+
+<% @locations.each do |r| %>
+<a href="/locations/<%= r.id %>"><%= r.name %></a>
+<br>
+<% end %>
+
+<br>

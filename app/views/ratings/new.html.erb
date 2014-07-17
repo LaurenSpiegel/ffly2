@@ -1,0 +1,44 @@
+<a href = '/'>Home</a>
+<br>
+<a href= "/gyms/<%= @gym.id %>">Back to <%= @gym.name %></a> 
+<h1>
+  Rate Your Experience for Fitness Facilities at <%= @gym.name %>
+
+</h1>
+
+<br>
+<%= form_for Rating.new, url: '/post_rating' do |foo| %>
+<%= foo.hidden_field :gym_id, value: @gym.id %>
+
+<fieldset class="stars">
+    <legend>Rating:</legend>
+    <input type="radio" id="star5" name="rating[stars]" value= 5 /><label for="star5" title="Better than my gym at home!">5 stars</label>
+    <input type="radio" id="star4" name="rating[stars]" value= 4 /><label for="star4" title="Pretty good">4 stars</label>
+    <input type="radio" id="star3" name="rating[stars]" value= 3 /><label for="star3" title="Meh">3 stars</label>
+    <input type="radio" id="star2" name="rating[stars]" value= 2 /><label for="star2" title="Pretty bad">2 stars</label>
+    <input type="radio" id="star1" name="rating[stars]" value= 1 /><label for="star1" title="Never returning">1 star</label>
+</fieldset>
+
+  
+<!-- <%= foo.label :stars %>  -->
+<br>
+<!-- <%= foo.select(:stars, [['1 star', 1], ['2 stars', 2], ['3 stars', 3], ['4 stars', 4], ['5 stars', 5]]) %> 
+-->
+<br>  
+<br>
+<br>
+<br>
+<legend>Comments:</legend>   
+<br>
+
+<%= foo.text_area :comments, :size => "60%x5%" %>
+<br>
+<br>
+<legend>Submit a Pic:</legend>
+<!-- <%= foo.label "Submt a pic" %>  -->
+<%= foo.file_field :image %>  
+<br>
+<br>
+  <%= foo.submit %>
+  <% end %>
+

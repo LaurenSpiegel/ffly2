@@ -1,0 +1,153 @@
+<a href = '/'>Home</a>
+<br>
+<a href= "/gyms/<%= @gym.id %>/rating">Submit a review for this Fitness Facility</a> 
+<h1>
+  Reviews for Fitness Facilities at <%= @gym.name %>
+
+</h1>
+
+<br>
+
+<% if @average_stars %>
+<h3> <%= @average_stars %> Stars</h3>
+<% end %>
+
+<br>
+<% @ratings.reverse_each do |f| %>
+<ul>
+  <li>
+    <strong><%= f.stars %> Star(s)</strong>: <%= f.comments %>
+<% if f.user %>
+    <br>
+(Rating by <%= f.user.email %>)
+    <br>
+<% end %>
+    <% if f.image_file_name != nil %>
+    <br>
+     <img src='<%= f.image %>' height="200" width="280"/>
+    <% end %>
+  </li>
+</ul>
+<br>
+<% end %>
+<br>
+<a href= "/gyms/<%= @gym.id %>/rating">Submit your own review for this Fitness Facility</a> 
+<br>
+<br>
+
+
+<h3>Other Gyms Nearby<h3>
+
+
+<iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=&q=gym&center=<%= @gym.coords.join(',') %>&zoom=13">
+</iframe>
+
+<br>
+<br>
+
+
+
+
+
+<h3>Golf Courses Nearby<h3>
+
+
+<iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=&q=golf+course&center=<%= @gym.coords.join(',') %>&zoom=10">
+</iframe>
+
+<br>
+<br>
+<br>
+<h3>Yoga and Pilates Studios Nearby<h3>
+
+
+<iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=&q=yoga+pilates&center=<%= @gym.coords.join(',') %>&zoom=12">
+</iframe>
+
+<br>
+<br>
+
+
+
+
+<h3>Upcoming Races Nearby</h3>
+<% date = Date.tomorrow %>
+<% active_key = "9kup34r9upvkkcnpquupxrzp" %>
+
+
+<% resp = RestClient.get("http://api.amp.active.com/v2/search?lat_lon=#{@gym.coords.join(',')}&radius=25&per_page=5&exclude_children=true&category=races&api_key=#{active_key}&sort=date_asc&exists=asset.cityName&exists=asset.placeName&exists=asset.assetName&exists=asset.activityStartDate&start_date=#{date}..") %>
+<% doc = JSON.parse(resp) %>
+<%  @events = doc['results'] %>
+
+<ul>
+  <% @events.each do |event| %>
+  <li>
+    <%= event['assetName'] %><br>
+    <%= event['place']['cityName'] %><br>
+    <%= event['activityStartDate'].to_date.to_s(:long) %><br>
+    <a href=<%= event['registrationUrlAdr'] %> > Sign up Here</a>  
+    </a>
+  </li>
+  <% end %>
+</ul>
+
+
+<h3>Healthy Restaurants Nearby</h3>
+
+
+
+<% uri_location = URI.encode("#{@location.name}") %>
+
+
+<% api_host = 'api.yelp.com' %>
+<% consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"}) %>
+<% access_token = OAuth::AccessToken.new(consumer, token, token_secret) %>
+<% path = "/v2/search?term=healthy+restaurants&location=#{uri_location}" %>
+
+<% yelp_doc = JSON.parse(access_token.get(path).body) %>
+
+<%  restaurants = yelp_doc['businesses'] %>
+
+<ul>
+  <% restaurants.each do |restaurant| %>
+  <li>
+    <a href=<%= restaurant['url'] %> > <%= restaurant['name'] %> </a><br>
+    <img src= <%= restaurant['rating_img_url'] %> > <%= restaurant['review_count'] %> reviews<br>
+    <img src= <%= restaurant['image_url'] %> > <br>
+    <br>
+  </li>
+  <% end %>
+</ul>
+
+
+
+
+
+
+
+<!--
+<br>
+<br>
+<script type="text/javascript" src="http://widgets.active.com/widgets/nearyou/widget-a3.min.js"></script>
+<script type="text/javascript">
+  new ActiveNetwork.NearYouWidget({"title":"Fitness Activities Near This Hotel","num":"5","keywords":"","activity":"any","showActivitySelector":true,"type":"event","location":"<%= @location.zip %>","showLocationSelector":false,"affiliate":"","placement":"","campaign":"150457","width":294,"height":383,"style":{"frame":{"background-color":"#ffffff"},"title":{"color":"#ffffff"},"window":{"background-color":"#ffffff"},"text":{"color":"#5b5c5c","border-color":"#5b5c5c"},"links":{"color":"#196e9c"},"buttons":{"background-color":"#f5ba46"},"tags":{"background-color":"#ffffff"}}}).render();
+</script>
+
+-->
+
+
+
+
+

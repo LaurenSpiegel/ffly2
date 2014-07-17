@@ -1,0 +1,15 @@
+<div><%= flash[:notice] %></div>
+
+  <% if @current_user %>
+  <div>
+    Welcome, <%= @current_user.email %>
+    <br>
+    <a href="/logout">Logout</a>
+    <br>
+  </div>
+  <br>
+  <% else %>
+  <div>
+    <a href="/signup">Signup</a>/
+    <a href='/login'>Login</a>
+<% end %>
