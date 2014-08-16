@@ -4,14 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
  #before_filter :increment_pageviews
-  before_filter :get_current_user
+
+  helper_method :current_user
   
   private
-  
-  def get_current_user
-    if session[:user_id]
-      @current_user= User.find(session[:user_id])
-    end
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
   # def increment_pageviews

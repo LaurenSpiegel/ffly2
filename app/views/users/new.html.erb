@@ -1,4 +1,12 @@
+<br>
+<br>
+<br>
+<br>
+
+
 <h1>Signup</h1>
+
+<font color= "rgb(88,88,88)">
 
 <%= form_for User.new, url: '/signup' do |f| %>
 <%= f.label :email %>
@@ -10,5 +18,7 @@
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation %>
 <br>
+<br>
 <%= f.submit "Signup" %>
 <% end %>
+</font>

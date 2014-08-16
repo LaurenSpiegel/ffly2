@@ -1,4 +1,5 @@
-<a href = '/'>Home</a>
+<br><br><br>
+<br>
 <br>
 <a href= "/gyms/<%= @gym.id %>/rating">Submit a review for this Fitness Facility</a> 
 <h1>
@@ -7,15 +8,15 @@
 </h1>
 
 <br>
-
+<font color= "#290088">
 <% if @average_stars %>
-<h3> <%= @average_stars %> Stars</h3>
+<h2> <%= @average_stars.round(2) %> Stars</h2>
 <% end %>
 
 <br>
 <% @ratings.reverse_each do |f| %>
 <ul>
-  <li>
+<li>
     <strong><%= f.stars %> Star(s)</strong>: <%= f.comments %>
 <% if f.user %>
     <br>
@@ -31,25 +32,231 @@
 <br>
 <% end %>
 <br>
+
+
+<h2> Equipment:</h2>
+
+<ul>
+
+
+<div class= "row">
+<div class="col-md-6">
+
+
+
+<% if @lap_pool > 0 %>
+<li>Pool long enough to swim real laps (Verified by <%= @lap_pool %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @chillin_pool > 0 %>
+<li>Pool for just chillin (Verified by <%= @chillin_pool %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @dumbbells_complete > 0 %>
+<li>Complete set of dumbbells (Verified by <%= @dumbbells_complete %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @dumbbells_incomplete > 0 %>
+<li>A rag tag set of dumbbells (Verified by <%= @dumbbells_incomplete %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+
+
+
+<% if @bench_press > 0 %>
+<li>Bench Press (Verified by <%= @bench_press %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @shoulder_press > 0 %>
+<li>Shoulder Press (Verified by <%= @shoulder_press %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @lats_back_machine > 0 %>
+<li>Lats/Back Machine (Verified by <%= @lats_back_machine %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @abs_machine > 0 %>
+<li>Abs Machine (Verified by <%= @abs_machine %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @shoulder_machine > 0 %>
+<li>Shoulder Machine (Verified by <%= @shoulder_machine %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+
+
+<% if @chest_machine > 0 %>
+<li>Chest Machine (Verified by <%= @chest_machine %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+
+
+
+
+
+<% if @biceps_machine > 0 %>
+<li>Biceps Machine (Verified by <%= @biceps_machine %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @quads_machine > 0 %>
+<li>Quads Machine (Verified by <%= @quads_machine %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @biceps_curl_bar > 0 %>
+<li>Biceps Curl Bar (Verified by <%= @biceps_curl_bar %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @chin_up_bar > 0 %>
+<li>Chin Up Bar (Verified by <%= @chin_up_bar %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+
+
+<% if @no_weights_at_all > 0 %>
+<li>No Weights At All (Verified by <%= @no_weights_at_all %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+
+</div>
+<div class="col-md-6">
+
+
+
+
+<% if @exercise_balls > 0 %>
+<li>Exercise Balls (Verified by <%= @exercise_balls %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @stretching_area > 0 %>
+<li>Stretching Area (Verified by <%= @stretching_area %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @bosu > 0 %>
+<li>Bosu (Verified by <%= @bosu %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @lockers > 0 %>
+<li>Lockers (Verified by <%= @lockers %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+
+
+
+
+<% if @treadmill > 0 %>
+<li>Treadmill  (Verified by <%= @treadmill %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @stairmaster > 0 %>
+<li>Stairmaster (Verified by <%= @stairmaster %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @stepmill > 0 %>
+<li>Stepmill (Verified by <%= @stepmill %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @elliptical > 0 %>
+<li>Elliptical (Verified by <%= @elliptical %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @spin_bike > 0 %>
+<li>Spin Bike (Verified by <%= @spin_bike %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+
+
+
+<% if @recumbent_bike > 0 %>
+<li>Recumbent Bike (Verified by <%= @recumbent_bike %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @towels_available > 0 %>
+<li>Towels Available (Verified by <%= @towels_available %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @tvs_that_work > 0 %>
+<li>TV's That Work (Verified by <%= @tvs_that_work %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @bottled_water > 0 %>
+<li>Bottled Water (Verified by <%= @bottled_water %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @chilled_filtered_water > 0 %>
+<li>Chilled Filtered Water (Verified by <%= @chilled_filtered_water %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+<% if @headphones_supplied > 0 %>
+<li>Headphones Supplied (Verified by <%= @headphones_supplied %> FiTiFLIER(S)) </li>
+<br>
+<% end %>
+
+</div>
+</div>
+
+
+
+
+
+
+
+</ul>
+
+<br>
 <a href= "/gyms/<%= @gym.id %>/rating">Submit your own review for this Fitness Facility</a> 
 <br>
 <br>
 
 
+<div class="row">
+<div class="col-md-6">
+
 <h3>Other Gyms Nearby<h3>
+
+  <% google_maps_key = ENV['GOOGLE_MAPS_KEY'] %>
 
 
 <iframe
   width="450"
   height="250"
   frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/search?key=&q=gym&center=<%= @gym.coords.join(',') %>&zoom=13">
+  src="https://www.google.com/maps/embed/v1/search?key=<%= google_maps_key %>&q=gym&center=<%= @gym.coords.join(',') %>&zoom=13">
 </iframe>
 
 <br>
 <br>
 
-
+</div>
+<div class="col-md-6">
 
 
 
@@ -60,12 +267,18 @@
   width="450"
   height="250"
   frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/search?key=&q=golf+course&center=<%= @gym.coords.join(',') %>&zoom=10">
+  src="https://www.google.com/maps/embed/v1/search?key=<%= google_maps_key %>&q=golf+course&center=<%= @gym.coords.join(',') %>&zoom=10">
 </iframe>
 
-<br>
-<br>
-<br>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-md-6">
+
+
+
 <h3>Yoga and Pilates Studios Nearby<h3>
 
 
@@ -73,21 +286,47 @@
   width="450"
   height="250"
   frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/search?key=&q=yoga+pilates&center=<%= @gym.coords.join(',') %>&zoom=12">
+  src="https://www.google.com/maps/embed/v1/search?key=<%= google_maps_key %>&q=yoga+pilates&center=<%= @gym.coords.join(',') %>&zoom=13">
 </iframe>
 
 <br>
 <br>
 
+</div>
+<div class="col-md-6">
+
+
+
+<h3>CrossFit Boxes Nearby<h3>
+
+
+<iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=<%= google_maps_key %>&q=crossfit&center=<%= @gym.coords.join(',') %>&zoom=13">
+</iframe>
+
+</div>
+</div>
+
+
+
+
+
+<div class="row">
+<div class="col-md-6">
 
 
 
 <h3>Upcoming Races Nearby</h3>
+<br>
 <% date = Date.tomorrow %>
-<% active_key = "9kup34r9upvkkcnpquupxrzp" %>
+<% active_key = ENV['ACTIVE_API_KEY'] %> 
 
 
-<% resp = RestClient.get("http://api.amp.active.com/v2/search?lat_lon=#{@gym.coords.join(',')}&radius=25&per_page=5&exclude_children=true&category=races&api_key=#{active_key}&sort=date_asc&exists=asset.cityName&exists=asset.placeName&exists=asset.assetName&exists=asset.activityStartDate&start_date=#{date}..") %>
+
+<% resp = RestClient.get("http://api.amp.active.com/v2/search?lat_lon=#{@gym.coords.join(',')}&radius=25&per_page=32&exclude_children=true&category=races&api_key=#{active_key}&sort=date_asc&exists=asset.cityName&exists=asset.placeName&exists=asset.assetName&exists=asset.activityStartDate&start_date=#{date}..") %>
 <% doc = JSON.parse(resp) %>
 <%  @events = doc['results'] %>
 
@@ -97,16 +336,26 @@
     <%= event['assetName'] %><br>
     <%= event['place']['cityName'] %><br>
     <%= event['activityStartDate'].to_date.to_s(:long) %><br>
-    <a href=<%= event['registrationUrlAdr'] %> > Sign up Here</a>  
+    <a href=<%= event['registrationUrlAdr'] %> > Sign up Here</a> 
+    <br>
+    <br> 
     </a>
   </li>
   <% end %>
 </ul>
 
 
+</div>
+
+<div class="col-md-6">
+
 <h3>Healthy Restaurants Nearby</h3>
 
-
+<% consumer_key = ENV['YELP_CONSUMER_KEY'] %>
+<% consumer_secret = ENV['YELP_CONSUMER_SECRET'] %>
+<% token = ENV['YELP_TOKEN'] %>
+<% token_secret = ENV['YELP_TOKEN_SECRET'] %>
+<% latitude_longitude = @gym.coords.join(',') %>
 
 <% uri_location = URI.encode("#{@location.name}") %>
 
@@ -132,7 +381,10 @@
 </ul>
 
 
+</div>
+</div>
 
+</font>
 
 
 

@@ -1,5 +1,13 @@
-<a href = '/'>Home</a>
+
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<font color= "#290088">
 <a href= "/gyms/<%= @gym.id %>">Back to <%= @gym.name %></a> 
 <h1>
   Rate Your Experience for Fitness Facilities at <%= @gym.name %>
@@ -11,7 +19,7 @@
 <%= foo.hidden_field :gym_id, value: @gym.id %>
 
 <fieldset class="stars">
-    <legend>Rating:</legend>
+    <h3 color= "rgb(88,88,88)">Rating:</h3>
     <input type="radio" id="star5" name="rating[stars]" value= 5 /><label for="star5" title="Better than my gym at home!">5 stars</label>
     <input type="radio" id="star4" name="rating[stars]" value= 4 /><label for="star4" title="Pretty good">4 stars</label>
     <input type="radio" id="star3" name="rating[stars]" value= 3 /><label for="star3" title="Meh">3 stars</label>
@@ -28,17 +36,120 @@
 <br>
 <br>
 <br>
-<legend>Comments:</legend>   
+<h3 color= "rgb(88,88,88)">Comments:</h3> 
 <br>
 
 <%= foo.text_area :comments, :size => "60%x5%" %>
 <br>
 <br>
-<legend>Submit a Pic:</legend>
+<h3 color= "rgb(88,88,88)">Equipment:</h3>
+<br> 
+
+
+
+<div class="row">
+<div class="col-md-2">
+
+
+<%= foo.check_box(:lap_pool) %>  Pool long enough to swim real laps
+<br><br>
+<%= foo.check_box(:chillin_pool) %>  Pool for just chillin
+<br><br>
+<%= foo.check_box(:dumbbells_complete) %>  Complete set of dumbbells
+<br><br>
+<%= foo.check_box(:dumbbells_incomplete) %>  A rag tag set of dumbbells
+<br><br>
+
+<%= foo.check_box(:bench_press) %>  Bench Press
+<br><br>
+<%= foo.check_box(:shoulder_press) %>  Shoulder Press
+<br><br>
+<%= foo.check_box(:lats_back_machine) %>  Lats/Back Machine
+<br><br>
+<%= foo.check_box(:abs_machine) %>  Abs Machine
+<br><br>
+<%= foo.check_box(:shoulder_machine) %>  Shoulder Machine
+<br><br>
+
+
+<%= foo.check_box(:chest_machine) %>  Chest Machine
+<br><br>
+
+
+</div>
+<div class="col-md-2">
+
+
+
+<%= foo.check_box(:biceps_machine) %>  Biceps Machine
+<br><br>
+<%= foo.check_box(:quads_machine) %>  Quads Machine
+<br><br>
+<%= foo.check_box(:biceps_curl_bar) %>  Biceps Curl Bar
+<br><br>
+<%= foo.check_box(:chin_up_bar) %>  Chin Up Bar
+<br><br>
+
+
+<%= foo.check_box(:no_weights_at_all) %>  No Weights At All
+<br><br>
+<%= foo.check_box(:exercise_balls) %>  Exercise Balls
+<br><br>
+<%= foo.check_box(:stretching_area) %>  Stretching Area
+<br><br>
+<%= foo.check_box(:bosu) %>  Bosu
+<br><br>
+<%= foo.check_box(:lockers) %>  Lockers
+<br><br>
+
+
+<%= foo.check_box(:treadmill) %>  Treadmill
+<br><br>
+
+
+</div>
+<div class="col-md-2">
+
+
+<%= foo.check_box(:stairmaster) %>  Stairmaster
+<br><br>
+<%= foo.check_box(:stepmill) %>  Stepmill
+<br><br>
+<%= foo.check_box(:elliptical) %>  Elliptical
+<br><br>
+<%= foo.check_box(:spin_bike) %>  Spin Bike
+<br><br>
+
+
+<%= foo.check_box(:recumbent_bike) %>  Recumbent Bike
+<br><br>
+<%= foo.check_box(:towels_available) %>  Towels Available
+<br><br>
+<%= foo.check_box(:tvs_that_work) %>  TV's That Work
+<br><br>
+<%= foo.check_box(:bottled_water) %>  Bottled Water
+<br><br>
+<%= foo.check_box(:chilled_filtered_water) %>  Chilled Filtered Water
+<br><br>
+<%= foo.check_box(:headphones_supplied) %>  Headphones Supplied
+<br><br>
+
+</div>
+</div>
+
+
+
+
+<br>
+<br>
+<h3 color= "rgb(88,88,88)">Submit a Pic:</h3>
 <!-- <%= foo.label "Submt a pic" %>  -->
 <%= foo.file_field :image %>  
 <br>
 <br>
   <%= foo.submit %>
   <% end %>
-
+<br>
+<br>
+<br>
+</font>

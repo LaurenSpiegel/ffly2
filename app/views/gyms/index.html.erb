@@ -1,11 +1,15 @@
-<a href = '/'>Home</a>
+<br>
+<br>
+<br>
+<br>
 <h1>Fitifly Fitness Facilities</h1>
 
-<div><b><font color= "rgb(88,88,88)"><%= flash[:notice] %></font></b></div>
+<div><b><font color= "#290088"><%= flash[:notice] %></font></b></div>
 <br>
 
 <% @gyms.each do |r| %>
 <a href="/gyms/<%= r.id %>"><%= r.name %></a>
 <br>
 <% end %>
+
 

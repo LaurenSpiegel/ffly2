@@ -93,7 +93,7 @@ var player, OKEvents, options;
     };
 
     // load the vimeo api by replacing the div with an iframe and loading js
-    base.loadVimeoAPI = function() {
+    /*base.loadVimeoAPI = function() {
       $('#okplayer').replaceWith(function() {
         return '<iframe src="http://player.vimeo.com/video/' + base.options.video.id + '?api=1&title=0&byline=0&portrait=0&playbar=0&loop=' + base.options.loop + '&autoplay=' + (base.options.autoplay === 1 ? 1 : 0) + '&player_id=okplayer" frameborder="0" style="' + $(this).attr('style') + 'visibility:hidden;background-color:black;" id="' + $(this).attr('id') + '"></iframe>';
       });
