@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/alexpeattie/heroku_secrets.git
+  revision: 717af8e0acf399bc88d2c8c1a7e230023942af0f
+  specs:
+    heroku_secrets (0.0.2)
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: 5ba2e1fb4cb8189c9890e29c19cf4e16c25e4bc5
   specs:
@@ -157,6 +163,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   figaro
   geocoder
+  heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails
   mongoid (~> 4.0.0.rc1)!
