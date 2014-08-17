@@ -53,4 +53,7 @@ gem 'geocoder'
 
 gem 'oauth'
 
+gem 'rails_12factor', group: :production
+
+
 
