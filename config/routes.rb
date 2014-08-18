@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
   get '/' => 'locations#index'
   get '/locations/:id' => 'locations#show'
+  post '/location_create' => 'locations#create'
   get '/gyms' => 'gyms#index' 
   get '/gyms/:id' => 'gyms#show'
   post '/gym_create' => 'gyms#create'
