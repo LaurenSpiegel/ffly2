@@ -73,7 +73,7 @@ test:
 production:
   sessions:
     default:
-      database: fitifly_test
+      database: fitifly_production
       hosts:
         - localhost:27017
       options:
