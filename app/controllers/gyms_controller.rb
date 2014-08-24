@@ -61,11 +61,14 @@ class GymsController < ApplicationController
     gym = Gym.new
     gym.name = params[:gym][:name]
     gym.location_id = params[:gym][:location_id]
-    #gym.street_address = params[:gym][:street_address] considered using this to further specify coordinates but results in geocoder failing.
+    #gym.street_address = params[:gym][:street_address] considered using this to further specify coordinates but results in geocoder failing. 
     gym.coords = Geocoder.coordinates("#{gym.name}")
     #gym.save!
      if gym.save
       redirect_to "/locations/#{gym.location_id}"
+    elsif (!gym.coords)
+        flash[:notice] = "Sorry.  We could not find that hotel!"
+        redirect_to "/locations/#{gym.location_id}"
    else
        flash[:notice] = "We have that location covered!" 
       redirect_to "/gyms"

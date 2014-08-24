@@ -10,5 +10,6 @@ class Gym
   #field :street_address, type: String   Considered incorporating this to aid in geolocation search
   
   validates :name, uniqueness: true
+  validates :coords, presence: true
  
 end
