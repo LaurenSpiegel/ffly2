@@ -48,7 +48,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rest-client'
 
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', :require=> 'aws-sdk'
 
 gem 'geocoder'
 
