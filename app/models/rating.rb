@@ -54,8 +54,9 @@ class Rating
   has_mongoid_attached_file :image,
     :storage    => :s3,
     :bucket_name  => 'fflyimages',
-    :s3_credentials => "#{Rails.root}/config/s3.yml",
+    :s3_credentials => File.join(Rails.root, 'config', 'amazon_s3.yml'),
     :path   => ":attachment/:id/:style.:extension" 
+    
   validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/]
    
   
